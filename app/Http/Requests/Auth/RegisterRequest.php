@@ -63,19 +63,19 @@ class RegisterRequest extends FormRequest
             'old_year' => [
                 'required',
                 'integer',
-                'between:2000,' . date('Y'),
+
             ],
 
             'old_month' => [
                 'required',
                 'integer',
-                'between:1,12',
+
             ],
 
             'old_day' => [
                 'required',
                 'integer',
-                'between:1,31',
+
             ],//生年月日
 
             'role' => [
@@ -108,15 +108,6 @@ class RegisterRequest extends FormRequest
                 );
 
                 return;
-            }
-
-            $birth_day= sprintf('%04d-%02d-%02d', $year, $month, $day);
-
-            if ($birth_day < '2000-01-01'||$birth_day > date('Y-m-d')) {
-                $validator->errors()->add(
-                    'old_day',
-                    '生年月日は2000年1月1日から今日までの日付を入力してください。'
-                );
             }
         });
     }
