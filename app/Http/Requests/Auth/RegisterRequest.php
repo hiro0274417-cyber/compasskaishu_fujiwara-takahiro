@@ -16,6 +16,24 @@ class RegisterRequest extends FormRequest
         return true;
     }
 
+        public function attributes()
+    {
+        return [
+            'over_name' => '姓',
+            'under_name' => '名',
+            'over_name_kana' => 'セイ',
+            'under_name_kana' => 'メイ',
+            'mail_address' => 'メールアドレス',
+            'sex' => '性別',
+            'old_year' => '生年月日（年）',
+            'old_month' => '生年月日（月）',
+            'old_day' => '生年月日（日）',
+            'role' => '役職',
+            'password' => 'パスワード',
+        ];
+    }
+
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -23,6 +41,7 @@ class RegisterRequest extends FormRequest
      */
     public function rules()
     {
+
         return [
             'over_name' => ['required','string','max:10'],
             'under_name' => ['required','string','max:10'],

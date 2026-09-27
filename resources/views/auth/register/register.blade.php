@@ -8,12 +8,20 @@
               <label class="d-block m-0" style="font-size:13px">姓</label>
               <div class="border-bottom border-primary" style="width:140px;">
                 <input type="text" style="width:140px;" class="border-0 over_name" name="over_name">
-              </div>
+                @error('over_name')
+                  <div class="text-danger">
+                      {{ $message }}
+                  </div>
+                @enderror
+             </div>
             </div>
             <div class="" style="width:140px">
               <label class=" d-block m-0" style="font-size:13px">名</label>
               <div class="border-bottom border-primary" style="width:140px;">
                 <input type="text" style="width:140px;" class="border-0 under_name" name="under_name">
+                @error('under_name')
+                <div class="text-danger">{{ $message }}</div>
+                @enderror
               </div>
             </div>
           </div>
@@ -22,12 +30,18 @@
               <label class="d-block m-0" style="font-size:13px">セイ</label>
               <div class="border-bottom border-primary" style="width:140px;">
                 <input type="text" style="width:140px;" class="border-0 over_name_kana" name="over_name_kana">
+                @error  ('over_name_kana')
+                 <div class="text-danger">{{ $message }}</div>
+                @enderror
               </div>
             </div>
             <div class="" style="width:140px">
               <label class="d-block m-0" style="font-size:13px">メイ</label>
               <div class="border-bottom border-primary" style="width:140px;">
                 <input type="text" style="width:140px;" class="border-0 under_name_kana" name="under_name_kana">
+                @error('under_name_kana')
+                  <div class="text-danger">{{ $message }}</div>
+                @enderror
               </div>
             </div>
           </div>
@@ -35,6 +49,9 @@
             <label class="m-0 d-block" style="font-size:13px">メールアドレス</label>
             <div class="border-bottom border-primary">
               <input type="mail" class="w-100 border-0 mail_address" name="mail_address">
+              @error('mail_address')
+                  <div class="text-danger">{{ $message }}</div>
+              @enderror
             </div>
           </div>
         </div>
@@ -45,6 +62,9 @@
           <label style="font-size:13px">女性</label>
           <input type="radio" name="sex" class="sex" value="3">
           <label style="font-size:13px">その他</label>
+          @error('sex')
+              <div class="text-danger">{{ $message }}</div>
+          @enderror
         </div>
         <div class="mt-3">
           <label class="d-block m-0 aa" style="font-size:13px">生年月日</label>
@@ -129,6 +149,18 @@
             <option value="31">31</option>
           </select>
           <label style="font-size:13px">日</label>
+          @error('old_year')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
+
+            @error('old_month')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
+
+            @error('old_day')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
+
         </div>
         <div class="mt-3">
           <label class="d-block m-0" style="font-size:13px">役職</label>
@@ -140,6 +172,9 @@
           <label style="font-size:13px">教師(英語)</label>
           <input type="radio" name="role" class="other_role role" value="4">
           <label style="font-size:13px" class="other_role">生徒</label>
+          @error('role')
+              <div class="text-danger">{{ $message }}</div>
+          @enderror
         </div>
         <div class="select_teacher d-none">
           <label class="d-block m-0" style="font-size:13px">選択科目</label>
@@ -154,12 +189,18 @@
           <label class="d-block m-0" style="font-size:13px">パスワード</label>
           <div class="border-bottom border-primary">
             <input type="password" class="border-0 w-100 password" name="password">
+            @error('password')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
           </div>
         </div>
         <div class="mt-3">
           <label class="d-block m-0" style="font-size:13px">確認用パスワード</label>
           <div class="border-bottom border-primary">
             <input type="password" class="border-0 w-100 password_confirmation" name="password_confirmation">
+            @error('password_confirmation')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
           </div>
         </div>
         <div class="mt-5 text-right">
