@@ -101,13 +101,11 @@ class RegisterRequest extends FormRequest
             $month = (int)$this->old_month;
             $day = (int)$this->old_day;
 
-            if(!checkdate($month,$day,$year)){
+            if ($year >= 2000 && !checkdate($month, $day, $year)) {
                 $validator->errors()->add(
                     'old_day',
                     '正しい日付を入力して下さい。'
                 );
-
-                return;
             }
         });
     }
