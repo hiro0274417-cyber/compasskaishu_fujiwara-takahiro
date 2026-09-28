@@ -94,6 +94,22 @@ class RegisterRequest extends FormRequest
         ];
     }
 
+    public function messages()
+{
+    return [
+        'required' => ':attributeは必須です。',
+        'string' => ':attributeは文字列で入力してください。',
+        'max' => ':attributeは:max文字以下で入力してください。',
+        'min' => ':attributeは:min文字以上で入力してください。',
+        'email' => ':attributeはメールアドレス形式で入力してください。',
+        'unique' => ':attributeは既に登録されています。',
+        'in' => ':attributeの選択が正しくありません。',
+        'integer' => ':attributeは整数で入力してください。',
+        'regex' => ':attributeはカタカナで入力してください。',
+        'confirmed' => ':attributeと確認用パスワードが一致しません。',
+    ];
+}
+
     public function withValidator($validator)
     {
         $validator->after(function($validator){
@@ -101,10 +117,21 @@ class RegisterRequest extends FormRequest
             $month = (int)$this->old_month;
             $day = (int)$this->old_day;
 
-            if ($year >= 2000 && !checkdate($month, $day, $year)) {
+            if (!checkdate($month, $day, $year)) {
                 $validator->errors()->add(
                     'old_day',
                     '正しい日付を入力して下さい。'
+                );
+
+                return;
+            }
+
+            $birth_day = sprintf('%04d-%02d-%02d', $year, $month, $day);
+
+            if ($birth_day < '2000-01-01' || $birth_day > date('Y-m-d')) {
+                $validator->errors()->add(
+                    'old_day',
+                    '生年月日は2000年1月1日から今日までの日付を入力してください。'
                 );
             }
         });
