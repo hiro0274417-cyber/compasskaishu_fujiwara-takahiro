@@ -62,20 +62,14 @@ class RegisterRequest extends FormRequest
 
             'old_year' => [
                 'required',
-                'integer',
-
             ],
 
             'old_month' => [
                 'required',
-                'integer',
-
             ],
 
             'old_day' => [
                 'required',
-                'integer',
-
             ],//生年月日
 
             'role' => [
@@ -94,21 +88,21 @@ class RegisterRequest extends FormRequest
         ];
     }
 
-    public function messages()
-{
-    return [
-        'required' => ':attributeは必須です。',
-        'string' => ':attributeは文字列で入力してください。',
-        'max' => ':attributeは:max文字以下で入力してください。',
-        'min' => ':attributeは:min文字以上で入力してください。',
-        'email' => ':attributeはメールアドレス形式で入力してください。',
-        'unique' => ':attributeは既に登録されています。',
-        'in' => ':attributeの選択が正しくありません。',
-        'integer' => ':attributeは整数で入力してください。',
-        'regex' => ':attributeはカタカナで入力してください。',
-        'confirmed' => ':attributeと確認用パスワードが一致しません。',
-    ];
-}
+        public function messages()
+    {
+        return [
+            'required' => ':attributeは必須です。',
+            'string' => ':attributeは文字列で入力してください。',
+            'max' => ':attributeは:max文字以下で入力してください。',
+            'min' => ':attributeは:min文字以上で入力してください。',
+            'email' => ':attributeはメールアドレス形式で入力してください。',
+            'unique' => ':attributeは既に登録されています。',
+            'in' => ':attributeの選択が正しくありません。',
+            'integer' => ':attributeは整数で入力してください。',
+            'regex' => ':attributeはカタカナで入力してください。',
+            'confirmed' => ':attributeと確認用パスワードが一致しません。',
+        ];
+    }
 
     public function withValidator($validator)
     {
