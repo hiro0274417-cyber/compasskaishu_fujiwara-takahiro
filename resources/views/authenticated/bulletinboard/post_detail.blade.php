@@ -4,13 +4,19 @@
     <div class="m-3 detail_container">
       <div class="p-3">
         <div class="detail_inner_head">
-          <div>
-          </div>
-            <div>
-              <span class="edit-modal-open" post_title="{{ $post->post_title }}" post_body="{{ $post->post }}" post_id="{{ $post->id }}">編集</span>
-              <span class="delete-modal-open">削除</span>
-          </div>
-        </div>
+              <div>
+         </div>
+              <div>
+                @if(Auth::id() == $post->user_id)
+                    <span class="edit-modal-open"
+                            post_title="{{ $post->post_title }}"
+                            post_body="{{ $post->post }}"
+                            post_id="{{ $post->id }}">編集</span>
+
+                    <span class="delete-modal-open">削除</span>
+                  @endif
+              </div>
+            </div>
 
         <div class="contributor d-flex">
           <p>
