@@ -6,9 +6,9 @@
         <div class="detail_inner_head">
           <div>
           </div>
-          <div>
-            <span class="edit-modal-open" post_title="{{ $post->post_title }}" post_body="{{ $post->post }}" post_id="{{ $post->id }}">編集</span>
-            <a href="{{ route('post.delete', ['id' => $post->id]) }}">削除</a>
+            <div>
+              <span class="edit-modal-open" post_title="{{ $post->post_title }}" post_body="{{ $post->post }}" post_id="{{ $post->id }}">編集</span>
+              <span class="delete-modal-open">削除</span>
           </div>
         </div>
 
@@ -70,6 +70,26 @@
       </div>
       {{ csrf_field() }}
     </form>
+  </div>
+</div>
+<div class="modal delete-modal">
+  <div class="modal__bg delete-modal-close"></div>
+
+  <div class="modal__content">
+    <div class="w-100">
+      <div class="w-50 m-auto text-center">
+        <p>本当に削除しますか？</p>
+
+        <div class="d-flex justify-content-center">
+          <a class="delete-modal-close btn btn-secondary" href="">キャンセル</a>
+
+          <a class="btn btn-danger ml-3"
+             href="{{ route('post.delete', ['id' => $post->id]) }}">
+            削除
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 </x-sidebar>

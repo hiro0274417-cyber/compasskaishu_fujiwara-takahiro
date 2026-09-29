@@ -62,5 +62,14 @@ $(function () {
     $('.js-modal').fadeOut();
     return false;
   });
+  $('.delete-modal-open').on('click', function () {
+  $('.delete-modal').fadeIn();
+  return false;
+});
+
+$('.delete-modal-close').on('click', function () {
+  $('.delete-modal').fadeOut();
+  return false;
+});
 
 });
