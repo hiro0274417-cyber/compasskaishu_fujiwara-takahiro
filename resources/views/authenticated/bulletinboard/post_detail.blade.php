@@ -26,7 +26,13 @@
           </p>
           <span class="ml-5">{{ $post->created_at }}</span>
         </div>
+        @error('post_title')
+              <div class="text-danger">{{ $message }}</div>
+          @enderror
         <div class="detsail_post_title">{{ $post->post_title }}</div>
+        @error('post_body')
+            <div class="text-danger">{{ $message }}</div>
+        @enderror
         <div class="mt-3 detsail_post">{{ $post->post }}</div>
       </div>
       <div class="p-3">
@@ -63,9 +69,6 @@
     <form action="{{ route('post.edit') }}" method="post">
       <div class="w-100">
         <div class="modal-inner-title w-50 m-auto">
-          @error('post_title')
-          <div class="text-danger">{{$message}}</div>
-          @enderror
           <input type="text" name="post_title" placeholder="タイトル" class="w-100">
         </div>
         <div class="modal-inner-body w-50 m-auto pt-3 pb-3">
