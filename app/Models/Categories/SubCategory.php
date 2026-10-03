@@ -13,7 +13,7 @@ class SubCategory extends Model
         'sub_category',
     ];
     public function mainCategory(){
-        return $this->belongs(MainCategory::class,'  main_category_id');
+        return $this->belongsTo(MainCategory::class,'main_category_id');
         // リレーションの定義
     }
 
