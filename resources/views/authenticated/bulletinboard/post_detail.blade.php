@@ -63,6 +63,9 @@
     <form action="{{ route('post.edit') }}" method="post">
       <div class="w-100">
         <div class="modal-inner-title w-50 m-auto">
+          @error('post_title')
+          <div class="text-danger">{{$message}}</div>
+          @enderror
           <input type="text" name="post_title" placeholder="タイトル" class="w-100">
         </div>
         <div class="modal-inner-body w-50 m-auto pt-3 pb-3">
