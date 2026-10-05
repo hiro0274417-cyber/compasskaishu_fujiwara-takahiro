@@ -78,6 +78,8 @@ class PostsController extends Controller
         $request->validate([
             'main_category_id'=>['required','exists:main_categories,id'],
             'sub_category_name'=>['required','string','max:100','unique:sub_categories,sub_category'],
+        ],[
+            'sub_category_name.required'=>'サブカテゴリーは必ず入力してください。',
         ]);
         SubCategory::create([
         'main_category_id' => $request->main_category_id,

@@ -45,6 +45,14 @@
       </div>
       <!-- サブカテゴリー追加 -->
        <div class="mt-3">
+        <div class="mt-3">
+          @if($errors->first('sub_category_name'))
+              <span class="error_message">
+                  {{ $errors->first('sub_category_name') }}
+              </span>
+          @endif
+
+    <p class="m-0">サブカテゴリー</p>
           <p class="m-0">サブカテゴリー</p>
 
           <select class="w-100" name="main_category_id" form="subCategoryRequest">
@@ -66,6 +74,7 @@
                 form="subCategoryRequest">
        </div>
       <form action="{{ route('main.category.create') }}" method="post" id="mainCategoryRequest">{{ csrf_field() }}</form>
+      <form action="{{ route('sub.category.create') }}" method="post" id="subCategoryRequest">{{ csrf_field() }}</form>
     </div>
   </div>
   @endcan
