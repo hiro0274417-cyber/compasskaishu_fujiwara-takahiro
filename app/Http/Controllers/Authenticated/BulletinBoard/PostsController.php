@@ -70,7 +70,16 @@ class PostsController extends Controller
         return redirect()->route('post.show');
     }
     public function mainCategoryCreate(Request $request){
-        MainCategory::create(['main_category' => $request->main_category_name]);
+        $request->validate([
+            'main_category_name' => ['required'],
+        ], [
+            'main_category_name.required' => 'メインカテゴリーは必ず入力してください。',
+        ]);
+
+        MainCategory::create([
+            'main_category' => $request->main_category_name
+        ]);
+
         return redirect()->route('post.input');
     }
 
