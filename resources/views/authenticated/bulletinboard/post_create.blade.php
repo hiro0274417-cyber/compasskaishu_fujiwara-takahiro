@@ -57,6 +57,11 @@
               @endif
 
               <p class="m-0">サブカテゴリー</p>
+              @if($errors->first('main_category_id'))
+                  <span class="error_message">
+                      {{ $errors->first('main_category_id') }}
+                  </span>
+              @endif
 
               <select class="w-100" name="main_category_id" form="subCategoryRequest">
                   @foreach($main_categories as $main_category)

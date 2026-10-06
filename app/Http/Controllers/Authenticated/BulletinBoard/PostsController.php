@@ -89,7 +89,7 @@ class PostsController extends Controller
             'sub_category_name'=>['required','string','max:100','unique:sub_categories,sub_category'],
         ],[
             'main_category_id.required' => 'メインカテゴリーは必ず選択してください。',
-            'main_category_id.exists'=>'選択されたメインカテゴリーは登録されていません。'
+            'main_category_id.exists'=>'選択されたメインカテゴリーは登録されていません。',
 
             'sub_category_name.required'=>'サブカテゴリーは必ず入力してください。',
             'sub_category_name.string' => 'サブカテゴリーは文字列で入力してください。',
