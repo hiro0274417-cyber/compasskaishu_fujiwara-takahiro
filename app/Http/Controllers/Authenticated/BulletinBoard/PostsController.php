@@ -74,6 +74,7 @@ class PostsController extends Controller
             'main_category_name' => ['required'],
         ], [
             'main_category_name.required' => 'メインカテゴリーは必ず入力してください。',
+            'main_category_id.exists'=>'選択されたメインカテゴリーは登録されていません。'
         ]);
 
         MainCategory::create([
@@ -89,6 +90,9 @@ class PostsController extends Controller
             'sub_category_name'=>['required','string','max:100','unique:sub_categories,sub_category'],
         ],[
             'sub_category_name.required'=>'サブカテゴリーは必ず入力してください。',
+            'sub_category_name.string' => 'サブカテゴリーは文字列で入力してください。',
+            'sub_category_name.max' => 'サブカテゴリーは100文字以内で入力してください。',
+            'sub_category_name.unique' => '同じ名前のサブカテゴリーは登録できません。',
         ]);
         SubCategory::create([
         'main_category_id' => $request->main_category_id,
