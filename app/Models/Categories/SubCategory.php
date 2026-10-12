@@ -19,7 +19,7 @@ class SubCategory extends Model
 
     public function posts(){
         return $this->belongsToMany(
-            App\Models\Posts\Post::class,
+            \App\Models\Posts\Post::class,
             'post_sub_categories',
             'sub_category_id',
             'post_id',
