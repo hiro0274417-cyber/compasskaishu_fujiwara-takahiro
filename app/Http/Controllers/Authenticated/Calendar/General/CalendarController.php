@@ -35,4 +35,29 @@ class CalendarController extends Controller
         }
         return redirect()->route('calendar.general.show', ['user_id' => Auth::id()]);
     }
+    public function delete(Request $request)
+    {
+        $request->validate([
+            'reserve_id' => 'required|integer',
+        ]);
+
+        DB::transaction(function () use ($request) {
+            $reserve = Auth::user()
+                ->reserveSettings()
+                ->where('reserve_settings.id', $request->reserve_id)
+                ->lockForUpdate()
+                ->firstOrFail();
+
+            if ($reserve->setting_reserve < date('Y-m-d')) {
+                abort(403, '過去の予約はキャンセルできません。');
+            }
+
+            $reserve->users()->detach(Auth::id());
+            $reserve->increment('limit_users');
+        });
+
+        return redirect()->route('calendar.general.show', [
+            'user_id' => Auth::id()
+        ]);
+    }
 }

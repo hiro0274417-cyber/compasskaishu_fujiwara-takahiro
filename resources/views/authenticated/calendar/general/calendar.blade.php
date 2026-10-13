@@ -22,10 +22,19 @@
         <p>予約時間：<span id="cancelReservePart"></span></p>
 
         <div class="text-right">
-            <button type="button" id="closeCancelModal" class="btn btn-secondary">
-                閉じる
-            </button>
-        </div>
+              <form action="{{ route('deleteParts') }}" method="POST" id="cancelReserveForm" style="display:inline;">
+                  @csrf
+                  <input type="hidden" name="reserve_id" id="cancelReserveId">
+
+                  <button type="submit" class="btn btn-danger">
+                      キャンセル
+                  </button>
+              </form>
+
+              <button type="button" id="closeCancelModal" class="btn btn-secondary">
+                  閉じる
+              </button>
+          </div>
     </div>
 </div>
 <script>
@@ -39,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
         button.addEventListener('click', function () {
             reserveDate.textContent = button.dataset.reserveDate;
             reservePart.textContent = button.dataset.reservePart;
+            document.getElementById('cancelReserveId').value = button.dataset.reserveId;
             modal.style.display = 'flex';
         });
     });

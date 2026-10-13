@@ -63,7 +63,8 @@ class CalendarView{
             $html[] = '<button type="button" class="btn btn-danger p-0 w-75 cancel-reserve-btn"
             style="font-size:12px"
             data-reserve-date="'.$day->everyDay().'"
-            data-reserve-part="'.$reservePart.'">'
+            data-reserve-part="'.$reservePart.'"
+            data-reserve-id="'.$day->authReserveDate($day->everyDay())->first()->id.'">'
             .$reservePart.
             '</button>';
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
