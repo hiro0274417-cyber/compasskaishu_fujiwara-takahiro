@@ -40,10 +40,11 @@ class CalendarView{
         $startDay = $this->carbon->copy()->format("Y-m-01");
         $toDay = $this->carbon->copy()->format("Y-m-d");
 
-        if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
-          $html[] = '<td class="calendar-td" style="background-color:#d3d3d3;">';
-        }else{
-          $html[] = '<td class="calendar-td '.$day->getClassName().'">';
+        if($day->everyDay() != '' && $day->everyDay() < date('Y-m-d')){
+              $html[] = '<td class="calendar-td" style="background-color:#d3d3d3;">';
+          }else{
+              $html[] = '<td class="calendar-td '.$day->getClassName().'">';
+          }
         }
         $html[] = $day->render();
 
@@ -64,12 +65,13 @@ class CalendarView{
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
           }
         }else{
-          if ($day->everyday() !=''&&$day->()<date('Y-m-d')){
-            $html[]='<p class="m-auto" style="font-size:12px;">受付終了</p>';
-            $html[] ='<input type="hidden" name="getPart[]" value="" form="reserveParts">';
+          if($day->everyDay() != '' && $day->everyDay() < date('Y-m-d')){
+              $html[] = '<p class="m-auto" style="font-size:12px;">受付終了</p>';
+              $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
           }else{
-            $html[] = $day->selectPart($day->everyDay());
-        }
+              $html[] = $day->selectPart($day->everyDay());
+          }
+      }
         $html[] = $day->getDate();
         $html[] = '</td>';
       }
