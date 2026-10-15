@@ -3,7 +3,7 @@
   <div class="w-50 m-auto h-75">
     <p><span>日</span><span class="ml-3">部</span></p>
     <div class="h-75 border">
-      <<table class="table w-100">
+      <table class="table w-100">
           <thead>
               <tr class="text-center">
                   <th>ID</th>
