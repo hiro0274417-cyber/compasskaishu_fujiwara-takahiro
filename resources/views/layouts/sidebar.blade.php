@@ -20,8 +20,8 @@
     <body class="all_content">
         <div class="d-flex">
             <div class="sidebar">
-                <p><a href="{{ route('top.show') }}">トップ</a></p>
-                <p><a href="/logout">ログアウト</a></p>
+                <p><a href="{{ route('top.show') }}"><img src="{{asset('image/top.jpg')}}"width="20" height="20" alt="">トップ</a></p>
+                <p><a href="/logout"><img src="{{asset('image/out.png')}}"width="20" height="20" alt="">ログアウト</a></p>
                 <p><a href="{{ route('calendar.general.show',['user_id' => Auth::id()]) }}">スクール予約</a></p>
                 @if(in_array(Auth::user()->role, [1, 2, 3]))
                 <p><a href="{{ route('calendar.admin.show',['user_id' => Auth::id()]) }}">スクール予約確認</a></p>
