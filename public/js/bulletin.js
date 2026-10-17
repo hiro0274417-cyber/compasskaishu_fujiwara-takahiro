@@ -1,7 +1,11 @@
 $(function () {
   $('.main_categories').click(function () {
-    var category_id = $(this).attr('category_id');
-    $('.category_num' + category_id).slideToggle();
+      var category_id = $(this).attr('category_id');
+
+      $('.category_num' + category_id).slideToggle();
+
+      $(this).find('.category_arrow')
+          .toggleClass('fa-chevron-down fa-chevron-up');
   });
 
   $(document).on('click', '.like_btn', function (e) {
