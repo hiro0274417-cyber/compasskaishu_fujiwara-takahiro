@@ -5,19 +5,31 @@
 <div class="board_area w-100 m-auto d-flex">
   <div class="post_view mt-5" style="width: 70%;">
     @foreach($posts as $post)
-    <div class="post_area border m-auto p-3" style="width: 85%;">
+    <div class="post_area border m-auto px-3 py-2"
+     style="width: 85%; min-height: 100px; display: flex; flex-direction: column; justify-content: space-between;">
       <p class="mb-2"><span>{{ $post->user->over_name }}</span><span class="ml-3">{{ $post->user->under_name }}</span>さん</p>
-      <p><a href="{{ route('post.detail', ['id' => $post->id]) }}">{{ $post->post_title }}</a></p>
+      <p class="mb-2  "><a href="{{ route('post.detail', ['id' => $post->id]) }}">{{ $post->post_title }}</a></p>
+
+      <p class="mb-0">
+          @foreach($post->subCategories as $subCategory)
+              <span class="badge mr-0"
+                    style="background-color: #04a9d2; color: white; border-radius: 8px; padding: 5px 8px;">
+                  {{ $subCategory->sub_category }}
+              </span>
+          @endforeach
+      </p>
       <div class="post_bottom_area d-flex justify-content-end">
         <div class="d-flex post_status">
           <div class="mr-5">
-            <i class="fa fa-comment"></i><span> {{ $post->commentCounts($post->id)}} </span>
+            <i class="fas fa-comment" style="color: #999999;"></i><span> {{ $post->commentCounts($post->id)}} </span>
           </div>
           <div>
             @if(Auth::user()->is_Like($post->id))
             <p class="m-0"><i class="fas fa-heart un_like_btn" post_id="{{ $post->id }}"></i><span class="like_counts{{ $post->id }}">{{ $like->likeCounts($post->id) }}</span></p>
             @else
-            <p class="m-0"><i class="fas fa-heart like_btn" post_id="{{ $post->id }}"></i><span class="like_counts{{ $post->id }}">{{ $like->likeCounts($post->id) }}</span></p>
+            <p class="m-0"><i class="far fa-heart like_btn"
+                post_id="{{ $post->id }}"
+                style="color: #999999;"></i><span class="like_counts{{ $post->id }}">{{ $like->likeCounts($post->id) }}</span></p>
             @endif
           </div>
         </div>
