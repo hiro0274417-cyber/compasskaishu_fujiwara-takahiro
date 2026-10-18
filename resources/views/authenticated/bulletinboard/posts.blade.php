@@ -6,20 +6,26 @@
   <div class="post_view mt-5" style="width: 70%;">
     @foreach($posts as $post)
     <div class="post_area border m-auto px-3 py-2"
-     style="width: 85%; min-height: 100px; display: flex; flex-direction: column; justify-content: space-between;">
+     style="width: 85%; min-height: 130px; display: flex; flex-direction: column; justify-content: space-between;">
       <p class="mb-2"><span>{{ $post->user->over_name }}</span><span class="ml-3">{{ $post->user->under_name }}</span>さん</p>
-      <p class="mb-2  "><a href="{{ route('post.detail', ['id' => $post->id]) }}">{{ $post->post_title }}</a></p>
-
-      <p class="mb-0">
-          @foreach($post->subCategories as $subCategory)
-              <span class="badge mr-0"
-                    style="background-color: #04a9d2; color: white; border-radius: 8px; padding: 5px 8px;">
-                  {{ $subCategory->sub_category }}
-              </span>
-          @endforeach
+      <p class="mb-2 mt-auto">
+          <a href="{{ route('post.detail', ['id' => $post->id]) }}"
+            style="color: #000000; font-weight: bold;">
+              {{ $post->post_title }}
+          </a>
       </p>
-      <div class="post_bottom_area d-flex justify-content-end">
-        <div class="d-flex post_status">
+
+      <div class="post_bottom_area d-flex justify-content-between align-items-center mt-auto">
+          <p class="mb-0">
+              @foreach($post->subCategories as $subCategory)
+                  <span class="badge mr-2"
+                        style="background-color: #04a9d2; color: white; border-radius: 10px; padding: 7px 12px; font-size: 12px;">
+                      {{ $subCategory->sub_category }}
+                  </span>
+              @endforeach
+          </p>
+
+       <div class="d-flex post_status">
           <div class="mr-5">
             <i class="fas fa-comment" style="color: #999999;"></i><span> {{ $post->commentCounts($post->id)}} </span>
           </div>
