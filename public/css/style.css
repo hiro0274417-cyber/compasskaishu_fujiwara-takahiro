@@ -25,11 +25,13 @@ li {
 
 /* サイドバー */
 .sidebar {
-  width: 200px;
+  width: 155px;
+  min-width: 155px;
   height: 100vh;
   background-color: #03AAD2;
   font-weight: bold;
   padding-top: 20px;
+  white-space: nowrap;
 }
 
 .main-container {
@@ -126,7 +128,7 @@ li {
 
 .post_create_area textarea {
   resize: none;
-  height: 300px;
+  height: 260px;
   white-space: pre-wrap;
 }
 
