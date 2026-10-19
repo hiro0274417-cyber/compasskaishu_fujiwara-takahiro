@@ -1,12 +1,20 @@
 <x-sidebar>
 <div class="vh-100 d-flex">
   <div class="w-50 mt-5 px-3">
-    <div class="m-3 detail_container">
+    <div class="mx-1 my-3 detail_container">
       <div class="p-3">
-        <div class="detail_inner_head">
-              <div>
-         </div>
-              <div>
+        @error('post_title')
+              <div class="text-danger">{{ $message }}</div>
+          @enderror
+        <div class="detail_inner_head mb-4">
+          <div>
+              @foreach($post->subCategories as $sub_category)
+                  <span class="category_box">
+                      {{ $sub_category->sub_category }}
+                  </span>
+              @endforeach
+          </div>
+          <div>
                 @if(Auth::id() == $post->user_id)
                     <span class="edit-modal-open btn btn-primary btn-sm"
                             post_title="{{ $post->post_title }}"
@@ -26,9 +34,7 @@
           </p>
           <span class="ml-5">{{ $post->created_at }}</span>
         </div>
-        @error('post_title')
-              <div class="text-danger">{{ $message }}</div>
-          @enderror
+
         <div class="detsail_post_title">{{ $post->post_title }}</div>
         @error('post_body')
             <div class="text-danger">{{ $message }}</div>
@@ -36,6 +42,7 @@
         <div class="mt-3 detsail_post">{{ $post->post }}</div>
       </div>
       <div class="p-3">
+
         <div class="comment_container">
           <span class="">コメント</span>
           @foreach($post->postComments as $comment)
@@ -54,13 +61,13 @@
   <div class="w-50 p-3">
     <div class="comment_container border m-5">
       <div class="comment_area p-3">
-        <p class="m-0">コメントする</p>
         @error('comment')
             <div class="text-danger">{{ $message }}</div>
         @enderror
+        <p class="m-0" style="color: #555;">コメントする</p>
         <textarea class="w-100" name="comment" form="commentRequest"></textarea>
         <input type="hidden" name="post_id" form="commentRequest" value="{{ $post->id }}">
-        <input type="submit" class="btn btn-primary" form="commentRequest" value="投稿">
+        <input type="submit" class="btn btn-primary d-block ml-auto" form="commentRequest" value="投稿">
         <form action="{{ route('comment.create') }}" method="post" id="commentRequest">{{ csrf_field() }}</form>
       </div>
     </div>
