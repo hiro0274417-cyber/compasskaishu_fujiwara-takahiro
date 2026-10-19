@@ -128,12 +128,15 @@ li {
 
 .post_create_area textarea {
   resize: none;
-  height: 260px;
+  height: 230px;
   white-space: pre-wrap;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
 }
 
 .detail_container {
   background: #FFF;
+  border-radius: 10px;
 }
 
 .post_area {

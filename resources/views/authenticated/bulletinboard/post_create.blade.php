@@ -1,9 +1,9 @@
 <x-sidebar>
 <div class="post_create_container d-flex">
-  <div class="post_create_area border m-5 p-5" style="width: 52%;">
+  <div class="post_create_area m-5 px-5 py-5 " style="width: 52%;">
     <div class="">
       <p class="mb-0">カテゴリー</p>
-      <select class="w-100" style="border: 0.5px solid #6b7280;" form="postCreate" name="post_category_id">
+      <select class="w-100" style="border: 1px solid #ced4da; border-radius: 4px;" form="postCreate" name="post_category_id">
         @foreach($main_categories as $main_category)
         <optgroup label="{{ $main_category->main_category }}">
           @foreach($main_category->subCategories as $sub_category)
@@ -21,14 +21,14 @@
       <span class="error_message">{{ $errors->first('post_title') }}</span>
       @endif
       <p class="mb-0">タイトル</p>
-      <input type="text" class="w-100" style="border: 0.5px solid #6b7280;" form="postCreate" name="post_title" value="{{ old('post_title') }}">
+      <input type="text" class="w-100" style="border: 1px solid #ced4da; border-radius: 4px;" form="postCreate" name="post_title" value="{{ old('post_title') }}">
     </div>
     <div class="mt-2">
       @if($errors->first('post_body'))
       <span class="error_message">{{ $errors->first('post_body') }}</span>
       @endif
       <p class="mb-0">投稿内容</p>
-      <textarea class="w-100" style="border: 0.5px solid #6b7280;" form="postCreate" name="post_body">{{ old('post_body') }}</textarea>
+      <textarea class="w-100" style="border: 1px solid #ced4da; border-radius: 4px;" form="postCreate" name="post_body">{{ old('post_body') }}</textarea>
     </div>
     <div class="mt-2 text-right">
       <input type="submit" class="btn btn-primary" value="投稿" form="postCreate">
@@ -36,8 +36,8 @@
     <form action="{{ route('post.create') }}" method="post" id="postCreate">{{ csrf_field() }}</form>
   </div>
   @can('admin')
-  <div class="ml-auto mr-auto" style="width: 30%;">
-    <div class="category_area mt-5 px-5" style="padding-top: 30px; padding-bottom: 30px;">
+  <div class="ml-auto mr-auto" style="width: 27%;">
+    <div class="category_area mt-5 px-4" style="padding-top: 50px; padding-bottom: 50px;">
       <div class="">
             @if($errors->first('main_category_name'))
                 <span class="error_message">
@@ -73,7 +73,7 @@
               @endif
 
               <select class="w-100 form-control mb-2"
-                      style="height: 26px;"
+                      style="height: 26px; padding-top: 0; padding-bottom: 0; line-height: 24px;"
                       name="main_category_id"
                       form="subCategoryRequest">
                   @foreach($main_categories as $main_category)

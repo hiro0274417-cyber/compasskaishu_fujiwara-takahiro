@@ -1,6 +1,6 @@
 <x-sidebar>
 <div class="vh-100 d-flex">
-  <div class="w-50 mt-5">
+  <div class="w-50 mt-5 px-3">
     <div class="m-3 detail_container">
       <div class="p-3">
         <div class="detail_inner_head">
@@ -8,12 +8,12 @@
          </div>
               <div>
                 @if(Auth::id() == $post->user_id)
-                    <span class="edit-modal-open"
+                    <span class="edit-modal-open btn btn-primary btn-sm"
                             post_title="{{ $post->post_title }}"
                             post_body="{{ $post->post }}"
                             post_id="{{ $post->id }}">編集</span>
 
-                    <span class="delete-modal-open">削除</span>
+                    <span class="delete-modal-open btn btn-danger btn-sm">削除</span>
                   @endif
               </div>
             </div>
