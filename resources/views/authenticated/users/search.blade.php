@@ -52,37 +52,41 @@
     @endforeach
   </div>
   <div class="search_area w-25 p-3 d-flex-column mt-5">
-    <h5 class="mb-4" style="color: #243B5A;">検索</h5>
+    <h5 class="mb-3" style="color: #607D98;">検索</h5>
     <div class="">
-      <div>
-        <input type="text" class="free_word rounded" name="keyword" placeholder="キーワードを検索" form="userSearchRequest">
+      <div class="mb-3">
+        <input type="text" class="free_word rounded border-0 py-2 px-2"
+        style="background-color: #E5E5E5; font-size: 13px; height: 40px; width:210px;"name="keyword" placeholder="キーワードを検索" form="userSearchRequest">
       </div>
-      <div>
-        <label>カテゴリ</label>
-        <select class="rounded" name="updown" form="userSearchRequest">
+      <div class="mb-3" style="display: flex; flex-direction: column; align-items: flex-start;">
+        <label class="mb-1 small" style="color:#607D98;">カテゴリ</label>
+        <select class="rounded border-0 py-1 px-1" style="background-color: #E5E5E5;" name="category" form="userSearchRequest">
           <option value="name">名前</option>
           <option value="id">社員ID</option>
         </select>
       </div>
-      <div>
-        <label>並び替え</label>
-        <select name="updown" form="userSearchRequest">
+      <div class="mb-3 small" style="display: flex; flex-direction: column; align-items: flex-start;">
+        <label class="mb-1" style="color:#607D98;">並び替え</label>
+        <select class="rounded border-0 py-1 px-1" style="background-color: #E5E5E5; width: 75px; height:32px;" name="updown" form="userSearchRequest">
           <option value="ASC">昇順</option>
           <option value="DESC">降順</option>
         </select>
       </div>
-      <div class="">
-        <p class="m-0 search_conditions"><span>検索条件の追加<span class="search_arrow"></span></span></p>
-        <div class="search_conditions_inner">
-          <div>
-            <label>性別</label>
+      <div class="mb-5" style="width:210px;">
+        <p class="m-0 search_conditions small d-flex justify-content-between align-items-center border-bottom pb-2" style="color: #607D98; border-bottom-color: #999999 !important;">
+            <span>検索条件の追加</span>
+            <span class="search_arrow"></span>
+        </p>
+        <div class="search_conditions_inner pt-3">
+          <div class="mb-3">
+            <label class="d-block mb-1" style="color:#607D98;">性別</label>
             <span>男</span><input type="radio" name="sex" value="1" form="userSearchRequest">
             <span>女</span><input type="radio" name="sex" value="2" form="userSearchRequest">
             <span>その他</span><input type="radio" name="sex" value="3" form="userSearchRequest">
           </div>
-          <div>
-            <label>権限</label>
-            <select name="role" form="userSearchRequest" class="engineer">
+          <div class="mb-3">
+            <label class="d-block mb-1" style="color:#607D98;">権限</label>
+            <select name="role" form="userSearchRequest" class="engineer rounded border-0" style="background-color: #E5E5E5; width: 100px; height: 32px;">
               <option selected disabled>----</option>
               <option value="1">教師(国語)</option>
               <option value="2">教師(数学)</option>
@@ -90,27 +94,27 @@
               <option value="4" class="">生徒</option>
             </select>
           </div>
-          <div class="selected_engineer">
-            <label>選択科目</label>
+          <div class="selected_engineer d-flex flex-wrap gap-2">
+            <label class="w-100 mb-0" style="color:#607D98;">選択科目</label>
             @foreach($subjects as $subject)
              <div>
               <label>
+                {{$subject->subject}}
                 <input type="checkbox"
                        name="subjects[]"
                        value="{{$subject->id}}"
                        form="userSearchRequest">
-                       {{$subject->subject}}
               </label>
              </div>
              @endforeach
           </div>
         </div>
       </div>
-      <div>
-        <input type="submit" name="search_btn" value="検索" form="userSearchRequest">
+      <div style="width:210px;">
+        <input type="submit" name="search_btn" value="検索" form="userSearchRequest" class="border-0 rounded w-100 py-2" style="background-color: #03AAD2; color:#FFF;">
       </div>
-      <div>
-        <input type="reset" value="リセット" form="userSearchRequest">
+      <div class="text-center mt-4" style="width:210px;">
+        <input type="reset" class="border-0" value="リセット" form="userSearchRequest" style="color:#03AAD2; background: transparent;" >
       </div>
 
     </div>
