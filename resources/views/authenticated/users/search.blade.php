@@ -2,7 +2,7 @@
 <div class="search_content w-100  d-flex">
   <div class="reserve_users_area">
     @foreach($users as $user)
-    <div class="border one_person">
+    <div class="border border-light one_person">
       <div>
         <span>ID : </span><span>{{ $user->id }}</span>
       </div>
@@ -31,13 +31,13 @@
       </div>
       <div>
         @if($user->role == 1)
-        <span>権限 : </span><span>教師(国語)</span>
+        <span>役職 : </span><span>教師(国語)</span>
         @elseif($user->role == 2)
-        <span>権限 : </span><span>教師(数学)</span>
+        <span>役職 : </span><span>教師(数学)</span>
         @elseif($user->role == 3)
-        <span>権限 : </span><span>講師(英語)</span>
+        <span>役職 : </span><span>講師(英語)</span>
         @else
-        <span>権限 : </span><span>生徒</span>
+        <span>役職 : </span><span>生徒</span>
         @endif
       </div>
       <div>
@@ -51,7 +51,7 @@
     </div>
     @endforeach
   </div>
-  <div class="search_area w-25 ">
+  <div class="search_area w-25 p-3 ">
     <div class="">
       <div>
         <input type="text" class="free_word" name="keyword" placeholder="キーワードを検索" form="userSearchRequest">
