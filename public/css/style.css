@@ -83,11 +83,16 @@ li {
 
 .adjust-table td {
   padding: 0 !important;
+  height: 93px;
+}
+
+.adjust-table .day {
+  position: relative;
+  top: 10px;
 }
 
 .adjust-area p {
   justify-content: space-around;
-  line-height: 1.2;
 }
 
 .adjust-table-btn {
