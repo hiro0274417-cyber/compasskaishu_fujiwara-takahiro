@@ -77,7 +77,8 @@ li {
 }
 
 .adjust-table {
-  width: 90% !important;
+  width: 95% !important;
+  font-size: 12px;
 }
 
 .adjust-table td {
@@ -86,10 +87,15 @@ li {
 
 .adjust-area p {
   justify-content: space-around;
+  line-height: 1.2;
 }
 
 .adjust-table-btn {
   width: 70%;
+}
+
+.adjust-table .adjust-area input {
+  border: 1px solid #D3D3D3;
 }
 
 /* モーダル */

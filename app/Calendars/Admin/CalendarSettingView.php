@@ -17,6 +17,7 @@ class CalendarSettingView{
   public function render(){
     $html = [];
     $html[] = '<div class="calendar text-center">';
+    $html[] = '<p class="mb-3">'.$this->getTitle().'</p>';
     $html[] = '<table class="table m-auto border adjust-table">';
     $html[] = '<thead>';
     $html[] = '<tr>';
