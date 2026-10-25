@@ -47,6 +47,7 @@ li {
 .user_status {
   border-radius: 10px;
   background: #FFF;
+  font-size: 12px;
 }
 
 /* スクール予約関連 */
@@ -311,7 +312,7 @@ li {
 
 .subject_edit_btn {
   font-size: 12px;
-  color: #0000FF;
+  color: #03AAD2;
   cursor: pointer;
 }
 
@@ -332,4 +333,9 @@ li {
 
 .search_arrow.open {
   transform: rotate(225deg);
+}
+
+.user_status .search_arrow {
+  border-right-color: #03AAD2;
+  border-bottom-color: #03AAD2;
 }

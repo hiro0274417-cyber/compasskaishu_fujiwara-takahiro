@@ -60,14 +60,14 @@
       </div>
       <div class="mb-3" style="display: flex; flex-direction: column; align-items: flex-start;">
         <label class="mb-1 small" style="color:#607D98;">カテゴリ</label>
-        <select class="rounded border-0 py-1 px-1" style="background-color: #E5E5E5;" name="category" form="userSearchRequest">
+        <select class="rounded border-0 py-1 px-2" style="background-color: #E5E5E5; font-size: 14px;" name="category" form="userSearchRequest">
           <option value="name">名前</option>
           <option value="id">社員ID</option>
         </select>
       </div>
       <div class="mb-3 small" style="display: flex; flex-direction: column; align-items: flex-start;">
         <label class="mb-1" style="color:#607D98;">並び替え</label>
-        <select class="rounded border-0 py-1 px-1" style="background-color: #E5E5E5; width: 75px; height:32px;" name="updown" form="userSearchRequest">
+        <select class="rounded border-0 py-0 px-2" style="background-color: #E5E5E5; width: 78px; height:32px; font-size: 14px;" name="updown" form="userSearchRequest">
           <option value="ASC">昇順</option>
           <option value="DESC">降順</option>
         </select>

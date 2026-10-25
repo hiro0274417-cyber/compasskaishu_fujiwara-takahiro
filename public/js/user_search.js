@@ -5,4 +5,5 @@ $('.search_conditions').click(function () {
 
   $('.subject_edit_btn').click(function () {
     $('.subject_inner').slideToggle();
+    $(this).find('.search_arrow').toggleClass('open');
   });
